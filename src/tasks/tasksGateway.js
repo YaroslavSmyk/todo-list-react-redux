@@ -1,15 +1,15 @@
-const baseUrl = "https://626c06265267c14d566b9473.mockapi.io/api/v1/TodoList";
+const baseUrl = 'https://62eaab3b3a5f1572e8811d96.mockapi.io/todo';
 
 export const createTask = (taskData) => {
   return fetch(baseUrl, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(taskData),
   }).then((response) => {
     if (!response.ok) {
-      throw new Error("Failed to create task");
+      throw new Error('Failed to create task');
     }
   });
 };
@@ -24,24 +24,24 @@ export const fetchTasksList = () => {
 
 export const updateTask = (taskId, taskData) => {
   return fetch(`${baseUrl}/${taskId}`, {
-    method: "PUT",
+    method: 'PUT',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(taskData),
   }).then((response) => {
     if (!response.ok) {
-      throw new Error("Failed to update task");
+      throw new Error('Failed to update task');
     }
   });
 };
 
 export const deleteTask = (taskId) => {
   return fetch(`${baseUrl}/${taskId}`, {
-    method: "DELETE",
+    method: 'DELETE',
   }).then((response) => {
     if (!response.ok) {
-      throw new Error("Failed to delete task");
+      throw new Error('Failed to delete task');
     }
   });
 };
