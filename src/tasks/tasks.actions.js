@@ -23,11 +23,11 @@ export const getTasksList = () => {
   return thunkAction;
 };
 
-export const updateTask = (taskid) => {
+export const updateTask = (taskId) => {
   const thunkAction = function (dispatcht, getState) {
     const state = getState();
     const tasksList = tasksListSelector(state);
-    const task = tasksList.find((task) => task.id === taskid);
+    const task = tasksList.find((task) => task.id === taskId);
 
     const updatedTask = {
       ...task,
@@ -42,7 +42,7 @@ export const updateTask = (taskid) => {
   return thunkAction;
 };
 
-export const deleteTask = (taskid) => {
+export const deleteTask = (taskId) => {
   const thunkAction = function (dispatcht) {
     tasksGateway.deleteTask(taskId).then(() => dispatcht(getTasksList()));
   };
